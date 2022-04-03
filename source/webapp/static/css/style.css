@@ -34,6 +34,8 @@
     font-family: "PT Serif", Georgia, Times New Roman, Times, serif;
     line-height: 24px;
     padding: 0 24px;
+    margin-bottom: 24px;
+    color: black;
 }
 
 .quote-list {
@@ -54,9 +56,10 @@
 .quote-information p {
     padding: 0 14px;
     color: deepskyblue;
+    margin-top: 12px;
 }
 
-.quote-one :first-child {
+.quote-one a{
     text-decoration: none;
     cursor: pointer;
 }
@@ -141,8 +144,10 @@
 
 .up{
     color: lightgreen;
+    cursor: pointer;
 }
 
 .down {
     color: red;
+    cursor: pointer;
 }

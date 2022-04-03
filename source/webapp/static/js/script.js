@@ -60,19 +60,17 @@ async function onQuoteClick(event) {
         }
     )
     let quote = await response.json()
-    console.log("1")
     if (quote.name) {
         if (quote.email) {
-            console.log("2")
-            quoteList.innerHTML += "<div style='border-bottom: none' class='quote-one'><p class='quote'>" + quote.text + "</p> <div class='quote-information'><p>Автор Цитаты: " + quote.name + "</p><p>Адрес Почты: " + quote.email + "</p> </div> </div>"
+            quoteList.innerHTML += "<div class='quote-one'><a data-pk='" + quote.id + "' onclick='onQuoteClick(event)' class='quote'>" + quote.text + "</a> <div class='quote-information'><p id='" + quote.id + "'><span data-pk='" + quote.id + "' onclick='ratingUp(event)' class='rating up'>⇑</span>    " + quote.rating + "    <span data-pk='" + quote.id + "' onclick='ratingDown(event)' class='rating down'>⇓</span></p><p>Автор Цитаты: " + quote.name + "</p><p>Адрес Почты: " + quote.email + "</p> </div><div class='quote-date'><p>Дата создание: " + quote.created_at + "</p></div></div>"
         } else {
-            quoteList.innerHTML += "<div style='border-bottom: none' class='quote-one'><p class='quote'>" + quote.text + "</p> <div class='quote-information'><p>Автор Цитаты: " + quote.name + "</p></div></div>"
+            quoteList.innerHTML += "<div class='quote-one'><a data-pk='" + quote.id + "' onclick='onQuoteClick(event)' class='quote'>" + quote.text + "</a> <div class='quote-information'><p id='" + quote.id + "'><span data-pk='" + quote.id + "' onclick='ratingUp(event)' class='rating up'>⇑</span>    " + quote.rating + "    <span data-pk='" + quote.id + "' onclick='ratingDown(event)' class='rating down'>⇓</span></p><p>Автор Цитаты: " + quote.name + "</p></div><div class='quote-date'><p>Дата создание: " + quote.created_at + "</p></div></div>"
         }
     } else {
         if (quote.email) {
-            quoteList.innerHTML += "<div style='border-bottom: none' class='quote-one'><p class='quote'>" + quote.text + "</p> <div class='quote-information'><p>Автор Цитаты: " + quote.name + "</p><p>Адрес Почты: " + quote.email + "</p> </div> </div>"
+            quoteList.innerHTML += "<div class='quote-one'><a data-pk='" + quote.id + "' onclick='onQuoteClick(event)' class='quote'>" + quote.text + "</a> <div class='quote-information'><p id='" + quote.id + "'><span data-pk='" + quote.id + "' onclick='ratingUp(event)' class='rating up'>⇑</span>    " + quote.rating + "    <span data-pk='" + quote.id + "' onclick='ratingDown(event)' class='rating down'>⇓</span></p><p>Адрес Почты: " + quote.email + "</p> </div><div class='quote-date'><p>Дата создание: " + quote.created_at + "</p></div></div>"
         } else {
-            quoteList.innerHTML += "<div style='border-bottom: none' class='quote-one'><p class='quote'>" + quote.text + "</p></div>"
+            quoteList.innerHTML += "<div class='quote-one'><a data-pk='" + quote.id + "' onclick='onQuoteClick(event)' class='quote'>" + quote.text + "</a></div><div class='quote-information'><p id='" + quote.id + "'><span data-pk='" + quote.id + "' onclick='ratingUp(event)' class='rating up'>⇑</span>    " + quote.rating + "    <span data-pk='" + quote.id + "' onclick='ratingDown(event)' class='rating down'>⇓</span></p><div class='quote-date'><p>Дата создание: " + quote.created_at + "</p></div></div>"
         }
 
     }
@@ -108,10 +106,10 @@ async function createQuote() {
             'X-CSRFToken': csrftokens
         }
     })
-    if (response.status === "201") {
-        alert("Цитата успешно создана!")
-    } else {
+    if (response.status === "500") {
         alert("Произошла ошибка!")
+    } else {
+        alert("Цитата успешно создана!")
     }
 }
 

@@ -26,4 +26,5 @@ class QuoteSerializer(serializers.ModelSerializer):
         if "text" in validated_data.keys():
             instance.text = validated_data['text']
         instance.status = "moderated"
+        instance.save()
         return instance

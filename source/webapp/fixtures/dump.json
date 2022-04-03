@@ -1,0 +1,134 @@
+[
+{
+  "model": "webapp.quote",
+  "pk": 1,
+  "fields": {
+    "text": "Test quote",
+    "name": "Andrew",
+    "email": "xenoncraftkg2@gmail.com",
+    "rating": 2,
+    "status": "moderated",
+    "created_at": "2022-04-03T09:05:39.710Z"
+  }
+},
+{
+  "model": "webapp.quote",
+  "pk": 3,
+  "fields": {
+    "text": "API create Test text",
+    "name": "Vanga",
+    "email": "supervanga@mail.ru",
+    "rating": 3,
+    "status": "new",
+    "created_at": "2022-04-03T14:12:24.221Z"
+  }
+},
+{
+  "model": "webapp.quote",
+  "pk": 4,
+  "fields": {
+    "text": "API update test",
+    "name": "Tomy",
+    "email": "update@mail.com",
+    "rating": 2,
+    "status": "new",
+    "created_at": "2022-04-03T14:20:36.782Z"
+  }
+},
+{
+  "model": "webapp.quote",
+  "pk": 5,
+  "fields": {
+    "text": "if you wolt, YOU WOLF!!",
+    "name": "Mike",
+    "email": "",
+    "rating": 2,
+    "status": "moderated",
+    "created_at": "2022-04-03T16:18:52.697Z"
+  }
+},
+{
+  "model": "webapp.quote",
+  "pk": 6,
+  "fields": {
+    "text": "test",
+    "name": "test",
+    "email": "tests@mail.ru",
+    "rating": 1,
+    "status": "new",
+    "created_at": "2022-04-03T18:05:27.632Z"
+  }
+},
+{
+  "model": "webapp.quote",
+  "pk": 7,
+  "fields": {
+    "text": "Мужик не тот кто код писал, а тот кто его не писал",
+    "name": "Аркадий",
+    "email": "",
+    "rating": 3,
+    "status": "moderated",
+    "created_at": "2022-04-03T18:09:29.160Z"
+  }
+},
+{
+  "model": "webapp.quote",
+  "pk": 8,
+  "fields": {
+    "text": "test quote create for js api",
+    "name": "",
+    "email": "mark@mail.ru",
+    "rating": 2,
+    "status": "new",
+    "created_at": "2022-04-03T18:11:47.714Z"
+  }
+},
+{
+  "model": "webapp.quote",
+  "pk": 9,
+  "fields": {
+    "text": "Цитата века",
+    "name": "",
+    "email": "quotes@mail.ru",
+    "rating": 0,
+    "status": "new",
+    "created_at": "2022-04-03T19:51:32.486Z"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$ijH4Da4sAwCwhvuFUjfbXR$DSfAo8VhvIw7MwhyqqgXQ42ZZ5STHgFWlWSwF1c7P9s=",
+    "last_login": "2022-04-03T19:51:03.884Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-04-03T09:03:03.666Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$VPATv8QI549ixBRmsYItzj$vJtbRCtWCZMrm4Xft9/J1j3z7hmX2YwKcgkshKIcoEk=",
+    "last_login": "2022-04-03T19:50:15.041Z",
+    "is_superuser": false,
+    "username": "test",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-04-03T14:23:39.717Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
