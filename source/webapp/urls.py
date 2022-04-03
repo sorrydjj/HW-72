@@ -5,5 +5,5 @@ from webapp.views import index
 app_name = "webapp"
 
 urlpatterns = [
-    path("", index)
+    path("", index, name="index")
 ]

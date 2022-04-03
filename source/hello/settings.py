@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     #Custom apps
     'webapp',
     'api_v1',
+    'accounts',
 
     #Lib apps
     'rest_framework'
@@ -118,6 +119,9 @@ USE_I18N = True
 
 USE_TZ = True
 
+LOGIN_REDIRECT_URL = "webapp:index"
+LOGOUT_REDIRECT_URL = "webapp:index"
+LOGIN_URL = "webapp:index"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
