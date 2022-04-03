@@ -42,3 +42,15 @@ class QuoteDeleteViewSet(DestroyAPIView):
 
     def perform_destroy(self, instance):
         return instance.delete()
+
+
+class QuoteRatingAddViewSet(UpdateAPIView):
+    serializer_class = QuoteSerializer
+    queryset = Quote.objects.all()
+
+    def perform_update(self, serializer):
+        if not "rating_add" in self.request.session:
+            serializer.instance.rating += 1
+            serializer.instance.save()
+            self.request.session["rating_add"] = True
+        return serializer
