@@ -1,5 +1,5 @@
-from rest_framework.generics import CreateAPIView, RetrieveAPIView, ListAPIView
-
+from rest_framework.generics import CreateAPIView, RetrieveAPIView, ListAPIView, UpdateAPIView, DestroyAPIView
+from rest_framework.permissions import IsAdminUser
 from api_v1.serializers import QuoteSerializer
 
 from webapp.models import Quote
@@ -14,6 +14,7 @@ class QuoteListCreateViewSet(ListAPIView):
         else:
             return Quote.objects.filter(status="moderated")
 
+
 class QuoteView(RetrieveAPIView):
     serializer_class = QuoteSerializer
 
@@ -26,3 +27,10 @@ class QuoteView(RetrieveAPIView):
 class QuoteCreateView(CreateAPIView):
     serializer_class = QuoteSerializer
     queryset = Quote.objects.all()
+
+
+class QuoteUpdateViewSet(UpdateAPIView):
+    permission_classes = [IsAdminUser]
+    serializer_class = QuoteSerializer
+    queryset = Quote.objects.all()
+

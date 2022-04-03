@@ -13,6 +13,8 @@ class Quote(models.Model):
                             blank=True,
                             verbose_name="Имя")
     email = models.EmailField(max_length=30,
+                              null=True,
+                              blank=True,
                               verbose_name="Почтовый адрес")
     rating = models.PositiveIntegerField(default=0,
                                          verbose_name="Рейтинг")
