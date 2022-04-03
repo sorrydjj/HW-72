@@ -1,12 +1,11 @@
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveAPIView, ListAPIView
 
 from api_v1.serializers import QuoteSerializer
-from rest_framework.permissions import AllowAny
 
 from webapp.models import Quote
 
 
-class QuoteListCreateViewSet(ListCreateAPIView):
+class QuoteListCreateViewSet(ListAPIView):
     serializer_class = QuoteSerializer
 
     def get_queryset(self):
@@ -14,3 +13,11 @@ class QuoteListCreateViewSet(ListCreateAPIView):
             return Quote.objects.all()
         else:
             return Quote.objects.filter(status="moderated")
+
+class QuoteView(RetrieveAPIView):
+    serializer_class = QuoteSerializer
+
+    def get_queryset(self):
+        if self.request.user.is_staff:
+            return Quote.objects.all()
+        return Quote.objects.filter(status="moderated")
