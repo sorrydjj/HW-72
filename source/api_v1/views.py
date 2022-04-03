@@ -34,3 +34,11 @@ class QuoteUpdateViewSet(UpdateAPIView):
     serializer_class = QuoteSerializer
     queryset = Quote.objects.all()
 
+
+class QuoteDeleteViewSet(DestroyAPIView):
+    permission_classes = [IsAdminUser]
+    serializer_class = QuoteSerializer
+    queryset = Quote.objects.all()
+
+    def perform_destroy(self, instance):
+        return instance.delete()
