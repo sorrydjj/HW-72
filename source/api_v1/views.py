@@ -50,14 +50,14 @@ class QuoteRatingAddViewSet(UpdateAPIView):
 
     def perform_update(self, serializer):
 
-        if not "rating_add" in self.request.session:
-            self.request.session["rating_add"] = False
+        if not f"rating_add_{serializer.instance.pk}" in self.request.session:
+            self.request.session[f"rating_add_{serializer.instance.pk}"] = False
 
-        if self.request.session['rating_add'] == False:
+        if self.request.session[f"rating_add_{serializer.instance.pk}"] == False:
             serializer.instance.rating += 1
             serializer.instance.save()
-            self.request.session["rating_add"] = True
-            self.request.session["rating_remove"] = False
+            self.request.session[f"rating_add_{serializer.instance.pk}"] = True
+            self.request.session[f"rating_remove_{serializer.instance.pk}"] = False
 
         return serializer
 
@@ -68,14 +68,14 @@ class QuoteRatingRemoveViewSet(UpdateAPIView):
 
     def perform_update(self, serializer):
 
-        if not "rating_remove" in self.request.session:
-            self.request.session["rating_remove"] = False
+        if not f"rating_remove_{serializer.instance.pk}" in self.request.session:
+            self.request.session[f"rating_remove_{serializer.instance.pk}"] = False
 
-        if self.request.session['rating_remove'] == False:
+        if self.request.session[f"rating_remove_{serializer.instance.pk}"] == False:
             if not serializer.instance.rating == 0:
                 serializer.instance.rating -= 1
                 serializer.instance.save()
-                self.request.session["rating_remove"] = True
-                self.request.session["rating_add"] = False
+                self.request.session[f"rating_remove_{serializer.instance.pk}"] = True
+                self.request.session[f"rating_add_{serializer.instance.pk}"] = False
 
         return serializer
